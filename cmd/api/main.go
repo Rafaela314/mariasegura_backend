@@ -15,7 +15,7 @@ func main() {
 
 	app.Domain = "mariasegura.com"
 
-	err := http.ListenAndServe(":8080", nil)
+	err := http.ListenAndServe(":8080", app.routes())
 	if err != nil {
 		log.Fatal(err)
 	}
