@@ -56,6 +56,7 @@ func (app *application) AllVideos(w http.ResponseWriter, r *http.Request) {
 		CreatedAt:   time.Now(),
 		UpdatedAt:   time.Now(),
 	}
+
 	videos = append(videos, highlander2)
 
 	out, err := json.Marshal(videos)
