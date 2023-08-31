@@ -30,36 +30,36 @@ func (app *application) Home(w http.ResponseWriter, r *http.Request) {
 	w.Write(out)
 }
 
-func (app *application) AllVideos(w http.ResponseWriter, r *http.Request) {
-	var videos []models.Video
+func (app *application) AllResources(w http.ResponseWriter, r *http.Request) {
+	var resources []models.Resource
 
 	rd, _ := time.Parse("2006-01-02", "1986-03-07")
 
-	highlander := models.Video{
-		ID:          1,
-		Title:       "highlander",
-		ReleaseDate: rd,
-		RunTime:     116,
-		Description: "cool video",
-		CreatedAt:   time.Now(),
-		UpdatedAt:   time.Now(),
+	highlander := models.Resource{
+		ID:             1,
+		Title:          "highlander",
+		RunTime:        116,
+		Description:    "cool Ebook",
+		Classification: "PDF",
+		CreatedAt:      rd,
+		UpdatedAt:      time.Now(),
 	}
 
-	videos = append(videos, highlander)
+	resources = append(resources, highlander)
 
-	highlander2 := models.Video{
-		ID:          2,
-		Title:       "highlander",
-		ReleaseDate: rd,
-		RunTime:     116,
-		Description: "cool video",
-		CreatedAt:   time.Now(),
-		UpdatedAt:   time.Now(),
+	highlander2 := models.Resource{
+		ID:             2,
+		Title:          "highlander",
+		RunTime:        116,
+		Description:    "cool video",
+		Classification: "video",
+		CreatedAt:      time.Now(),
+		UpdatedAt:      time.Now(),
 	}
 
-	videos = append(videos, highlander2)
+	resources = append(resources, highlander2)
 
-	out, err := json.Marshal(videos)
+	out, err := json.Marshal(resources)
 	if err != nil {
 		fmt.Println(err)
 	}
